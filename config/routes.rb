@@ -1,4 +1,4 @@
-Rails3BootstrapDeviseCancan::Application.routes.draw do
+Prefplay::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
   end
