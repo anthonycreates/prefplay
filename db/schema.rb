@@ -11,7 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120430151353) do
+ActiveRecord::Schema.define(:version => 20120507205135) do
+
+  create_table "choices", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "guesses", :force => true do |t|
+    t.integer  "question_id"
+    t.decimal  "choice1_percent", :precision => 3, :scale => 2
+    t.decimal  "choice2_percent", :precision => 3, :scale => 2
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "name"
+    t.integer  "choice1"
+    t.integer  "choice2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -49,5 +71,12 @@ ActiveRecord::Schema.define(:version => 20120430151353) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "question_id"
+    t.integer  "choice_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
 end

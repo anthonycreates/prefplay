@@ -1,4 +1,14 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @question.name %>
+</p>
+
+<p>
+  <%= @question.choice1_id %>
+</p>
+
+<p>
+  <%= @question.choice2_id %>
+</p>
+

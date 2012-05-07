@@ -1,4 +1,12 @@
 Prefplay::Application.routes.draw do
+  resources :questions
+
+  resources :choices
+
+  resources :votes
+
+  resources :guesses
+
   authenticated :user do
     root :to => 'home#index'
   end
