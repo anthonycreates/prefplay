@@ -25,7 +25,8 @@ class VotesController < ApplicationController
   # GET /votes/new.json
   def new
     @vote = Vote.new
-
+    @question = Question.find(params[:question])
+    @choice = Choice.find(params[:choice])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @vote }

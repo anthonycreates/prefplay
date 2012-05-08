@@ -7,4 +7,6 @@ class Question < ActiveRecord::Base
   accepts_nested_attributes_for :choice1, :choice2, :allow_destroy => true
 
   validates :name,  :presence => true
+  validates :choice1,  :presence => true
+  validates :choice2,  :presence => true
 end

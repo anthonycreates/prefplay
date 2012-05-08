@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
+<div class="span12">
   <%= @question.name %>
-</p>
+</div>
 
-<p>
-  <%= @question.choice1_id %>
-</p>
 
-<p>
-  <%= @question.choice2_id %>
-</p>
+<div class="span12">
+  <div class="span6">
+    <%= link_to @question.choice1.name, new_vote_path(:question => @question, :choice => @question.choice1) %>
+  </div>
+
+  <div class="span6">
+    <%= link_to @question.choice2.name, new_vote_path(:question => @question, :choice => @question.choice2) %>
+  </div>
+</div>
 

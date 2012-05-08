@@ -11,14 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :question_id %><br />
-    <%= f.number_field :question_id %>
+  <div>
+    <h3><%= @question.name %></h3>
+    <h4><%= "Your choice: #{@choice.name}" %><h4>
   </div>
-  <div class="field">
-    <%= f.label :choice_id %><br />
-    <%= f.number_field :choice_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
