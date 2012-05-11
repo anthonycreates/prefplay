@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :choice do
-    name "MyString"
+    name { ["red", "orange", "yellow", "green", "blue", "purple", "black", "white"].sample }
   end
 end

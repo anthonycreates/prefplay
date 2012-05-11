@@ -9,4 +9,10 @@ class Question < ActiveRecord::Base
   validates :name,  :presence => true
   validates :choice1,  :presence => true
   validates :choice2,  :presence => true
+  
+  def other_choice(choice)
+    other = choice1
+    other = choice2 if choice == choice1 
+    return other
+  end
 end

@@ -2,4 +2,4 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', votes_path %>
+<%= link_to 'Switch vote', new_question_vote_path(@question, :choice_id => @question.other_choice(@choice)) %>

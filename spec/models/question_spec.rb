@@ -1,5 +1,6 @@
 require 'spec_helper'
 
 describe Question do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should require a name" do
+    Question.new(:name => 
 end
