@@ -1,5 +1,45 @@
-<h1>New vote</h1>
+<%= form_for [@question, @vote] do |f| %>
+  <% if @vote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
 
-<%= render 'form' %>
+      <ul>
+      <% @vote.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Switch vote', new_question_vote_path(@question, :choice_id => @question.other_choice(@choice)) %>
+  <div class="row-fluid">
+    <div class="span12">
+      <h2><%= @question.name %></h2>
+      <h4><%= "Your choice: #{@vote.choice.name}" %><h4>
+      <%= link_to 'Switch vote', new_question_vote_path(@question, :choice_id => @question.other_choice(@choice)) %>
+      <div class="row-fluid">
+        <%= f.fields_for :guess do |guess_form| %>
+          <div id="choice1" class="span6 choice">
+            <div class="field">
+              <%= guess_form.label :choice1_percent %><br />
+              <%= guess_form.text_field :choice1_percent %>
+            </div>
+          </div>
+          <div id="choice2" class="span6 choice">
+            <div class="field">
+              <%= guess_form.label :choice2_percent %><br />
+              <%= guess_form.text_field :choice2_percent %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+

@@ -21,7 +21,7 @@ class VotesController < ApplicationController
     @question = Question.find(params[:question_id])
     @choice = Choice.find(params[:choice_id])
     @vote = Vote.new(:question => @question, :choice => @choice)
-    
+    @vote.build_guess
     respond_with @vote
   end
 
