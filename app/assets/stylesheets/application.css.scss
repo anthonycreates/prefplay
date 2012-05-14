@@ -12,7 +12,7 @@
  *= require_tree .
 */
 
-.content {
+.choices {
   background-color: #eee;
   padding: 20px;
   margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
@@ -22,11 +22,27 @@
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  margin-top: 20px;
+}
+
+.your_choice {
+  background-color: #F9FF8C;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  -webkit-border-radius: 0 0 6px 6px;
+  -moz-border-radius: 0 0 6px 6px;
+  border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  margin-top: 20px;
 }
 
 .choice {
   text-align: center;
-  min-height: 200px;
+  min-height: 80px;
+  padding: 20px 0;
+  margin-top: 20px;
 }
 
 #choice1 {
@@ -35,4 +51,9 @@
 
 #choice2 {
   background-color: #1B63E0;
+}
+
+.do_it {
+  margin-top: 20px;
+  text-align: center;
 }

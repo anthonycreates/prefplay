@@ -14,29 +14,36 @@
   <div class="row-fluid">
     <div class="span12">
       <h2><%= @question.name %></h2>
-      <h4><%= "Your choice: #{@vote.choice.name}" %><h4>
-      <%= link_to 'Switch vote', new_question_vote_path(@question, :choice_id => @question.other_choice(@choice)) %>
-      <div class="row-fluid">
-        <%= f.fields_for :guess do |guess_form| %>
-          <div id="choice1" class="span6 choice">
-            <div class="field">
-              <%= guess_form.label :choice1_percent %><br />
-              <%= guess_form.text_field :choice1_percent %>
-            </div>
-          </div>
-          <div id="choice2" class="span6 choice">
-            <div class="field">
-              <%= guess_form.label :choice2_percent %><br />
-              <%= guess_form.text_field :choice2_percent %>
-            </div>
-          </div>
-        <% end %>
+      <div class="row-fluid your_choice">
+        <h3>
+        <%= "Your Choice - #{@vote.choice.name}" %>
+        <%= link_to content_tag(:i, "", class: "icon-random icon-white") + " Switch Vote", new_question_vote_path(@question, :choice_id => @question.other_choice(@choice)), :class => "btn btn-inverse" %>
+        </h3>
+      </div>
+      <div class="row-fluid choices">
+        <h3><%= "Crowd's Choice - make your prediction:" %></h3>
+        <div class="row-fluid">
+          <%= f.fields_for :guess do |guess_form| %>
+              <div id="choice1" class="span6 choice">
+                <div class="field">
+                  <h4><%= @question.choice1.name %></h4>
+                  <%= guess_form.text_field :choice1_percent %>
+                </div>
+              </div>
+              <div id="choice2" class="span6 choice">
+                <div class="field">
+                  <h4><%= @question.choice2.name %></h4>
+                  <%= guess_form.text_field :choice2_percent %>
+                </div>
+              </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="row actions">
+    <%= f.submit "Do it!", :class => "btn btn-primary btn-large do_it" %>
   </div>
 <% end %>
 

@@ -2,7 +2,7 @@
 <div class="row-fluid">
   <div class="span12">
     <h2><%= @question.name %></h2>
-    <div class="row-fluid">
+    <div class="row-fluid choices">
       <div id="choice1" class="span6 choice">
         <h3><%=@question.choice1.name %></h3>
         <%= link_to "Vote", new_question_vote_path(@question, :choice_id => @question.choice1), :class => "btn btn-large" %>

@@ -34,12 +34,13 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(params[:vote])
-
+    @question = Question.find(params[:question_id])
+    @vote = @question.votes.build(params[:vote])
+    
     if @vote.save
-      flash[:notice] = 'Vote was successfully created.'
+      flash[:notice] = 'Voted successfully!'
     end
-    respond_with @vote
+    redirect_to root_path
   end
 
   # PUT /votes/1
