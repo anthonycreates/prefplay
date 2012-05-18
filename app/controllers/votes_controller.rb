@@ -25,33 +25,16 @@ class VotesController < ApplicationController
     respond_with @vote
   end
 
-  # GET /votes/1/edit
-  def edit
-    @vote = Vote.find(params[:id])
-    respond_with @vote
-  end
-
   # POST /votes
   # POST /votes.json
   def create
     @question = Question.find(params[:question_id])
     @vote = @question.votes.build(params[:vote])
-    
+
     if @vote.save
       flash[:notice] = 'Voted successfully!'
     end
     redirect_to root_path
-  end
-
-  # PUT /votes/1
-  # PUT /votes/1.json
-  def update
-    @vote = Vote.find(params[:id])
-
-    if @vote.save
-      flash[:notice] = 'Vote was successfully updated.'
-    end
-    respond_with @vote
   end
 
 end

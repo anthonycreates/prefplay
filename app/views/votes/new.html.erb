@@ -24,6 +24,7 @@
         <h3><%= "Crowd's Choice - make your prediction:" %></h3>
         <div class="row-fluid">
           <%= f.fields_for :guess do |guess_form| %>
+              
               <div id="choice1" class="span6 choice">
                 <div class="field">
                   <h4><%= @question.choice1.name %></h4>
@@ -43,6 +44,7 @@
   </div>
 
   <div class="row actions">
+    <%= f.hidden_field :choice_id %>
     <%= f.submit "Do it!", :class => "btn btn-primary btn-large do_it" %>
   </div>
 <% end %>
